@@ -1,0 +1,6 @@
+AudioEndNodes:
+    hosts:
+        orange-pi-pc:
+            ansible_host: 192.168.1.48
+        orange-pi-one:
+            ansible_host: 192.168.1.84

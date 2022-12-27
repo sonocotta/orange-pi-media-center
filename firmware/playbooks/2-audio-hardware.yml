@@ -1,0 +1,63 @@
+- name: Hardware
+  hosts: AudioEndNodes
+  become: yes
+  tasks:
+
+  - name: apt install packages
+    apt:
+      name: 
+        - mpg123
+      state: present
+
+  # we need kernel module for PCM510X DAC
+  - name: Clone a github repository
+    git:
+      repo: https://github.com/anabolyc/pcm5102a-for-armbian-orangepi-zero
+      dest: /opt/repos/pcm5102a-for-armbian-orangepi-zero
+      clone: yes
+      update: yes
+      force: yes
+
+  # Enable I2S harwdare output
+  - name: Install I2S overlay
+    run_once: yes
+    ansible.builtin.shell:
+      cmd: dtc -@ -q -I dts -O dtb -o /tmp/i2s-sound.dtbo i2s-sound.dts && mv /tmp/i2s-sound.dtbo /boot/overlay-user/
+      chdir: /opt/repos/pcm5102a-for-armbian-orangepi-zero
+
+  - name: Patch armbianEnv.txt
+    lineinfile:
+      dest: /boot/armbianEnv.txt
+      regexp: "{{ item.regexp }}"
+      line: "{{ item.line }}"
+    loop:
+    - { regexp: '^user_overlays=', line: 'user_overlays=i2s-sound' }
+
+  - name: Build pcm5102a kernel module
+    run_once: yes
+    ansible.builtin.shell:
+      cmd: make all
+      chdir: /opt/repos/pcm5102a-for-armbian-orangepi-zero
+
+  - name: Install pcm5102a kernel module
+    run_once: yes
+    ansible.builtin.shell:
+      cmd: make install
+      chdir: /opt/repos/pcm5102a-for-armbian-orangepi-zero
+
+  # Disable HDMI audio output
+  - name: Kernel module blacklist
+    lineinfile:
+      dest: /etc/modprobe.d/blacklist.conf
+      regexp: "{{ item.regexp }}"
+      line: "{{ item.line }}"
+    loop:
+    - { regexp: '^blacklist snd_soc_hdmi_codec', line: 'blacklist snd_soc_hdmi_codec' }
+    - { regexp: '^blacklist sun9i_hdmi_audio', line: 'blacklist sun9i_hdmi_audio' }
+    - { regexp: '^blacklist dw_hdmi_i2s_audio', line: 'blacklist dw_hdmi_i2s_audio' }
+
+
+  # Requires reboot due to hardaware configuration changes
+  - name: Reboot the machine (Wait for 5 min)
+    reboot:
+      reboot_timeout: 300
