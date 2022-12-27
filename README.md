@@ -60,6 +60,10 @@ All above can be done manually, basically following [instructions](https://hacka
 
 Design files can be found in [hardware](/hardware) section.
 
+## Where to buy
+
+Available at [Tindie](https://www.tindie.com/products/sonocotta/orange-pi-hi-fi-hat/)
+
 ## Look
 
 ### Orange Pi One
