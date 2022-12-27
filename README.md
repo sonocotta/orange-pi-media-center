@@ -31,24 +31,24 @@ It's capable and reasonably priced, and great value for money. But most notably,
 
 ## How to use
 
-Ornange Pi runs [Armbian](https://www.armbian.com/), [Volumio](https://volumio.com/en/) and [Mopidy](https://mopidy.com/), but before any of then can utilize Hi-Fi DAC, it needs to be configured.
+Orange Pi runs [Armbian](https://www.armbian.com/), [Volumio](https://volumio.com/en/) and [Mopidy](https://mopidy.com/), but before any of then can utilize Hi-Fi DAC, it needs to be configured.
 
-Setting up an external DAC is not a trivial task, therefore some exmaples were provided in [firmware](/firmware) section.
+Setting up an external DAC is not a trivial task, therefore some examples were provided in [firmware](/firmware) section.
 
 ### Automated deployment using Ansible
 
-[Ansible](https://www.ansible.com/) is an automation suite that allows you to configure systems remotely using redistributabke configurations called playbooks.
+[Ansible](https://www.ansible.com/) is an automation suite that allows you to configure systems remotely using redistributable configurations called playbooks.
 
-Few playbooks were created to allow 2-clicks deployemnt for Orange Pi Hi-Fi Hat. Those are based on Armbian Ubuntu Focal images, can be download here: [Orange Pi PC](https://imola.armbian.com/archive/orangepipc/archive/Armbian_21.02.1_Orangepipc_focal_current_5.10.12.img.xz) and [Orange Pi One](https://fi.mirror.armbian.de/archive/orangepione/archive/Armbian_21.02.1_Orangepione_focal_current_5.10.12.img.xz)
+Few playbooks were created to allow 2-clicks deployment for Orange Pi Hi-Fi Hat. Those are based on Armbian Ubuntu Focal images, can be download here: [Orange Pi PC](https://imola.armbian.com/archive/orangepipc/archive/Armbian_21.02.1_Orangepipc_focal_current_5.10.12.img.xz) and [Orange Pi One](https://fi.mirror.armbian.de/archive/orangepione/archive/Armbian_21.02.1_Orangepione_focal_current_5.10.12.img.xz)
 
-Below steps are run on your laptop ro PC, all configurations will be delivered remotely via ssh
+Below steps are run on your laptop or PC, all configurations will be delivered remotely via ssh
 
-- Write downloaded image onto cd-card of your choice. Start your Orange Pi and find it's IP address. Next steps will assume that IP address of each node stays the same after reboot. You might need to configure your router to lease static IP to Orange Pi to make it stable.
+- Write downloaded Armbian image onto a cd-card of your choice. Start your Orange Pi and find its IP address. Next steps will assume that the IP address of each node stays the same after reboot. You might need to configure your router to lease static IP to Orange Pi to make it stable.
 - Open [firmware](/firmware) folder in vscode. In case you don't want to install vscode, you can run commands in plain terminal as well. Please use [tasks.json](/firmware/.vscode/tasks.json) file for reference
 - Prepare [hosts](/firmware/hosts) file. Add your node's IP address and name
 - Run `0. install prerequisites` task. It will install necessary tools on your laptop/PC, like Ansible client and such
-- Run `1. apply with root password` task. It will ask for root password, which is `1234` by default on Armbian. This task will install and update packages, as well as create new user and configure ssh on your Pi
-- Open [2-audio-hardware.yml](/firmware/playbooks/2-audio-hardware.yml) file and run `2. apply ${file} without password` task. It will build and configure kernel moduel for PCM510X DAC as well as configure Device Tree overlay to inform Linux about new DAC is has
+- Run `1. apply with root password` task. It will ask for the root password, which is `1234` by default on Armbian. This task will install and update packages, as well as create new user and configure ssh on your Pi
+- Open [2-audio-hardware.yml](/firmware/playbooks/2-audio-hardware.yml) file and run `2. apply ${file} without password` task. It will build and configure kernel module for PCM510X DAC as well as configure Device Tree overlay to inform Linux about new DAC is has
 - (Optional) Do the same with [3-pulseaudio.yml](firmware/playbooks/3-pulseaudio.yml), [4-mopidy.yml](firmware/playbooks/4-mopidy.yml), [5-libre-spotify.yml](firmware/playbooks/5-libre-spotify.yml) playbooks. That will install [Pulseaudio](https://www.freedesktop.org/wiki/Software/PulseAudio/) network node, [Mopidy](https://mopidy.com/) and [Libre-Spotify](https://github.com/dtcooper/raspotify) smart speaker software accordingly
 
 
