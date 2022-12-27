@@ -5,6 +5,8 @@
 
 Orange Pi Hi-Fi Hat adds Hi-Fi audio capability to your Pi. It uses native I2S output of Orange Pi together with Texas Instruments' fantastic PCM5100 Hi-Fi DAC.
 
+![image](https://user-images.githubusercontent.com/5459747/209653155-5d475646-525a-4f9a-a561-1d854e3b34ee.png)
+
 ## Why did I build it
 
 I want to bring modern hobbyist technologies to the world of classic speakers and amps gear. I build systems that keep that old-school ish look, but add online streaming and smart remote capabilities. I build this project as a possible core of such solution, where small but much capable box with Orange Pi in it drives large Pro-sized and Pro-sounded audio
@@ -59,3 +61,13 @@ All above can be done manually, basically following [instructions](https://hacka
 Design files can be found in [hardware](/hardware) section.
 
 ## Look
+
+### Orange Pi One
+
+![image](https://user-images.githubusercontent.com/5459747/209653238-e1d93dc3-8c1f-4b69-94c1-c0ca967b8e86.png)
+![image](https://user-images.githubusercontent.com/5459747/209653254-e99c16c2-5480-4c46-8801-a08646382ccb.png)
+
+### Orange Pi PC
+
+![image](https://user-images.githubusercontent.com/5459747/209653361-29e2cff6-6f71-405b-bc1e-7d4f22a72046.png)
+![image](https://user-images.githubusercontent.com/5459747/209653386-3736780d-dade-45c7-b182-718f26f47ff5.png)
