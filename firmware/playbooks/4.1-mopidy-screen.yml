@@ -1,0 +1,46 @@
+- name: Mopidy
+  hosts: AudioEndNodes
+  become: yes
+  tasks:
+
+  # Enable hardware SPI 
+  - name: Patch armbianEnv.txt
+    lineinfile:
+      dest: /boot/armbianEnv.txt
+      regexp: "{{ item.regexp }}"
+      line: "{{ item.line }}"
+    loop:
+    - { regexp: '^overlays=', line: 'overlays=spi-spidev' }
+    - { regexp: '^param_spidev_spi_bus=', line: 'param_spidev_spi_bus=0' }
+
+  - name: apt install packages
+    apt:
+      name:
+        - python3-gi
+        - python3-numpy
+      state: present
+
+  - name: Install mopidy plugins
+    ansible.builtin.pip:
+      name: 
+        - pygobject
+        - numpy
+        - Mopidy.OrangePi.Pidi
+
+  # To grant GPIO access
+  - name: adding existing user 'mopidy' to group dialout
+    user:
+      name: mopidy
+      groups: dialout
+      append: yes
+      
+  # - name: Start mopidy service
+  #   ansible.builtin.service:
+  #     name: mopidy
+  #     state: restarted
+  #     enabled: yes
+
+  # Requires reboot due to hardaware configuration changes
+  - name: Reboot the machine (Wait for 5 min)
+    reboot:
+      reboot_timeout: 300
