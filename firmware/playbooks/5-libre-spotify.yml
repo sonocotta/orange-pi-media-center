@@ -15,38 +15,6 @@
         - libpulse0
       state: present
 
-  # - name: Clone raspotify repository
-  #   git:
-  #     repo: https://github.com/dtcooper/raspotify
-  #     dest: /opt/repos/raspotify
-  #     clone: yes
-  #     update: yes
-  #     force: yes
-
-  # - name: Install raspotify
-  #   run_once: yes
-  #   ansible.builtin.shell:
-  #     cmd: install.sh
-  #     chdir: /opt/repos/raspotify
-
-  # - name: Install raspotify key
-  #   run_once: yes
-  #   ansible.builtin.shell: |
-  #       curl -sSL https://dtcooper.github.io/raspotify/key.asc | tee /usr/share/keyrings/raspotify_key.asc
-  #       chmod 644 /usr/share/keyrings/raspotify_key.asc
-  #       echo "deb [signed-by=/usr/share/keyrings/raspotify_key.asc] https://dtcooper.github.io/raspotify raspotify main" | tee /etc/apt/sources.list.d/raspotify.list
-
-  # - name: apt update
-  #   register: updatesys
-  #   apt:
-  #     update_cache: yes
-
-  # - name: apt install packages
-  #   apt:
-  #     name: 
-  #       - raspotify
-  #     state: present
-
   - name: Check if raspotify is installed
     command: dpkg-query -W raspotify
     register: my_package_check_deb
