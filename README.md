@@ -62,7 +62,10 @@ Design files can be found in [hardware](/hardware) section.
 
 ## Where to buy
 
-Available at [Tindie](https://www.tindie.com/products/sonocotta/orange-pi-hi-fi-hat/)
+Available at Tindie
+- [Orange Pi Hi-Fi hat](https://www.tindie.com/products/sonocotta/orange-pi-hi-fi-hat/)
+- [Loud Orange Pi](https://www.tindie.com/products/sonocotta/loud-orange-pi-hat/)
+- [Orange Pi Media Center](https://www.tindie.com/products/sonocotta/orange-pi-media-center/)
 
 ## Look
 
