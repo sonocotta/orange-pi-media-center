@@ -140,12 +140,12 @@ Design files can be found in [hardware](/hardware) section.
 
 ## Look
 
-| Legend | Photo |
-|-----------|-----------|
-| Orange Pi One | ![image](https://user-images.githubusercontent.com/5459747/209653238-e1d93dc3-8c1f-4b69-94c1-c0ca967b8e86.png) ![image](https://user-images.githubusercontent.com/5459747/209653254-e99c16c2-5480-4c46-8801-a08646382ccb.png)
-| Orange Pi PC | ![image](https://user-images.githubusercontent.com/5459747/209653361-29e2cff6-6f71-405b-bc1e-7d4f22a72046.png) ![image](https://user-images.githubusercontent.com/5459747/209653386-3736780d-dade-45c7-b182-718f26f47ff5.png)
-| Loud Orange Pi with optional TFT screen | ![DSC_0433](https://github.com/sonocotta/orange-pi-hi-fi-hat/assets/5459747/28e6fa61-931e-42fc-841b-1774a86752a5) ![DSC_0437](https://github.com/sonocotta/orange-pi-hi-fi-hat/assets/5459747/f3cc4fb3-8fc6-4810-a096-cbe7c65547d0)
-| Orange Pi Media Center | ![DSC_0509](https://github.com/sonocotta/orange-pi-hi-fi-hat/assets/5459747/5b477e8e-8844-40bd-acaa-fbc27555e032) ![DSC_0506](https://github.com/sonocotta/orange-pi-hi-fi-hat/assets/5459747/dcd36078-74b0-4744-bd0e-191f12fd5c39) ![DSC_0504](https://github.com/sonocotta/orange-pi-hi-fi-hat/assets/5459747/f6d266f6-c94b-4148-8f30-3e29ab946653)
+| Legend | Photo 1 | Photo 2 |
+|-----------|-----------|-----------|
+| Orange Pi One | ![image](https://user-images.githubusercontent.com/5459747/209653238-e1d93dc3-8c1f-4b69-94c1-c0ca967b8e86.png) | ![image](https://user-images.githubusercontent.com/5459747/209653254-e99c16c2-5480-4c46-8801-a08646382ccb.png)
+| Orange Pi PC | ![image](https://user-images.githubusercontent.com/5459747/209653361-29e2cff6-6f71-405b-bc1e-7d4f22a72046.png) | ![image](https://user-images.githubusercontent.com/5459747/209653386-3736780d-dade-45c7-b182-718f26f47ff5.png)
+| Loud Orange Pi with optional TFT screen | ![DSC_0433](https://github.com/sonocotta/orange-pi-hi-fi-hat/assets/5459747/28e6fa61-931e-42fc-841b-1774a86752a5) | ![DSC_0437](https://github.com/sonocotta/orange-pi-hi-fi-hat/assets/5459747/f3cc4fb3-8fc6-4810-a096-cbe7c65547d0)
+| Orange Pi Media Center | ![DSC_0509](https://github.com/sonocotta/orange-pi-hi-fi-hat/assets/5459747/5b477e8e-8844-40bd-acaa-fbc27555e032) ![DSC_0506](https://github.com/sonocotta/orange-pi-hi-fi-hat/assets/5459747/dcd36078-74b0-4744-bd0e-191f12fd5c39) | ![DSC_0504](https://github.com/sonocotta/orange-pi-hi-fi-hat/assets/5459747/f6d266f6-c94b-4148-8f30-3e29ab946653)
 
 ## Where to buy
 
