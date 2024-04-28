@@ -31,17 +31,95 @@ It's capable and reasonably priced, and great value for money. But most notably,
 
 ## How to use
 
-Orange Pi runs [Armbian](https://www.armbian.com/), [Volumio](https://volumio.com/en/) and [Mopidy](https://mopidy.com/), but before any of then can utilize Hi-Fi DAC, it needs to be configured.
+Orange Pi runs [Armbian](https://www.armbian.com/), [Volumio](https://volumio.com/en/), and [Mopidy](https://mopidy.com/), but before any of then can utilize Hi-Fi DAC, it needs to be configured.
 
-Setting up an external DAC is not a trivial task, therefore some examples were provided in [firmware](/firmware) section.
+As of 2024, setting up DAC at Armbian is one step process, since all the necessary drivers (kernel modules) are part of the standard kernel now.
+
+First, create a file named `i2s-sound.dts` with the following contents
+
+```
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "allwinner,sun8i-h2-plus";
+
+ 	fragment@0 { 
+ 		target-path = "/"; 
+ 		__overlay__ { 
+			pcm5102a: pcm5102a {
+			#sound-dai-cells = <0>;
+			compatible = "ti,pcm5102a";
+			pcm510x,format = "i2s";
+			};
+ 		}; 
+ 	}; 
+
+	fragment@1 {
+		target = <&i2s0>;
+		__overlay__ {
+			status = "okay";
+			pinctrl-0 = <&i2s0_pins>;
+			sound-dai = <&pcm5102a>;
+			pinctrl-names = "default";
+		};
+	};
+
+	fragment@2 {
+		target-path = "/";
+		__overlay__ {
+			sound_i2s {
+				compatible = "simple-audio-card";
+				simple-audio-card,name = "hifi-orange-pi";
+				simple-audio-card,mclk-fs = <256>;
+				simple-audio-card,format = "i2s";
+		                status = "okay";
+
+				simple-audio-card,cpu {
+					sound-dai = <&i2s0>;
+				};
+
+				simple-audio-card,codec {
+					sound-dai = <&pcm5102a>;
+				};
+			};
+		};
+	};
+};
+```
+
+Next, run the following command 
+
+```bash
+sudo armbian-add-overlay i2s-sound.dts
+```
+
+This will compile the device tree overlay, copy it to the `/boot/user-overlays` folder and add a line to the `/boot/armbianEnv.txt` with `user_overlays=i2s-sound`. After reboot you will see a new audio card available
+
+```
+$ aplay -l
+**** List of PLAYBACK Hardware Devices ****
+card 0: hifiorangepi [hifi-orange-pi], device 0: 1c22000.i2s-pcm5102a-hifi pcm5102a-hifi-0 [1c22000.i2s-pcm5102a-hifi pcm5102a-hifi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: sun9ihdmi [sun9i-hdmi], device 0: SUN9I-HDMI PCM i2s-hifi-0 [SUN9I-HDMI PCM i2s-hifi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+```
+
+You can test the audio with the following command
+
+```bash
+$ speaker-test -t wav -c 2
+```
 
 ### Automated deployment using Ansible
 
 [Ansible](https://www.ansible.com/) is an automation suite that allows you to configure systems remotely using redistributable configurations called playbooks.
 
-Few playbooks were created to allow 2-clicks deployment for Orange Pi Hi-Fi Hat. Those are based on Armbian Ubuntu Focal images, can be download here: [Orange Pi PC](https://imola.armbian.com/archive/orangepipc/archive/Armbian_21.02.1_Orangepipc_focal_current_5.10.12.img.xz) and [Orange Pi One](https://fi.mirror.armbian.de/archive/orangepione/archive/Armbian_21.02.1_Orangepione_focal_current_5.10.12.img.xz)
+A few playbooks were created to allow 2-clicks deployment for Orange Pi Hi-Fi Hat. Those are based on Armbian Ubuntu Focal images, can be download here: [Orange Pi PC](https://imola.armbian.com/archive/orangepipc/archive/Armbian_21.02.1_Orangepipc_focal_current_5.10.12.img.xz) and [Orange Pi One](https://fi.mirror.armbian.de/archive/orangepione/archive/Armbian_21.02.1_Orangepione_focal_current_5.10.12.img.xz)
 
-Below steps are run on your laptop or PC, all configurations will be delivered remotely via ssh
+The below steps are run on your laptop or PC, all configurations will be delivered remotely via ssh
 
 - Write downloaded Armbian image onto a cd-card of your choice. Start your Orange Pi and find its IP address. Next steps will assume that the IP address of each node stays the same after reboot. You might need to configure your router to lease static IP to Orange Pi to make it stable.
 - Open [firmware](/firmware) folder in vscode. In case you don't want to install vscode, you can run commands in plain terminal as well. Please use [tasks.json](/firmware/.vscode/tasks.json) file for reference
