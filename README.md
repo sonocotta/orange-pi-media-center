@@ -37,6 +37,8 @@ As of 2024, setting up DAC at Armbian is one step process, since all the necessa
 
 First, create a file named `i2s-sound.dts` with the following contents
 
+#### HiFi Orange Pi
+
 ```
 /dts-v1/;
 /plugin/;
@@ -81,6 +83,59 @@ First, create a file named `i2s-sound.dts` with the following contents
 
 				simple-audio-card,codec {
 					sound-dai = <&pcm5102a>;
+				};
+			};
+		};
+	};
+};
+```
+
+#### Loud Orange Pi
+
+```
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "allwinner,sun8i-h2-plus";
+
+ 	fragment@0 { 
+ 		target-path = "/"; 
+ 		__overlay__ { 
+			max98357a: max98357a {
+			#sound-dai-cells = <0>;
+			compatible = "maxim,max98357a";
+			status = "okay";
+			};
+ 		}; 
+ 	};
+
+	fragment@1 {
+		target = <&i2s0>;
+		__overlay__ {
+			status = "okay";
+			pinctrl-0 = <&i2s0_pins>;
+			sound-dai = <&max98357a>;
+			pinctrl-names = "default";
+		};
+	};
+
+	fragment@2 {
+		target-path = "/";
+		__overlay__ {
+			sound_i2s {
+				compatible = "simple-audio-card";
+				simple-audio-card,name = "loud-orange-pi";
+				simple-audio-card,mclk-fs = <256>;
+				simple-audio-card,format = "i2s";
+		                status = "okay";
+
+				simple-audio-card,cpu {
+					sound-dai = <&i2s0>;
+				};
+
+				simple-audio-card,codec {
+					sound-dai = <&max98357a>;
 				};
 			};
 		};
