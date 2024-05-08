@@ -288,7 +288,7 @@ Please visit the [hardware](/hardware/) section for board schematics and PCB des
 
 ### Current designs
 
-- HiFi Orange Pi Media Center (coming soon)
+- [HiFi Orange Pi Media Center](https://www.tindie.com/products/sonocotta/hifi-orange-pi-media-center/)
 - Loud Orange Pi Media Center (coming soon)
  
 ### Legacy designs
