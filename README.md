@@ -263,13 +263,15 @@ Please visit the [hardware](/hardware/) section for board schematics and PCB des
 
 | Front | Back | PCB |
 |---|---|---|
-| ![DSC_0002_small JPG-mh](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/9a5ebd9c-379e-481e-a9cf-932aa880da58) | ![DSC_0005_small JPG-mh](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/68d6b6d8-cc70-4592-a3ae-fbd6974bcbbb) | 
+| ![DSC_0002_small JPG-mh](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/9a5ebd9c-379e-481e-a9cf-932aa880da58) | ![DSC_0005_small JPG-mh](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/68d6b6d8-cc70-4592-a3ae-fbd6974bcbbb) | ![DSC_0023_small JPG-mh](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/837f02d7-7a3f-4a7f-890a-b3fe79d24d12)
+
 
 ### Loud Raspberry Pi
 
 | Front | Back | PCB |
 |---|---|---|
-| ![DSC_0002_small JPG-mh](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/85fdc9c3-852d-4012-bbf2-506308a8949f) |  ![DSC_0008_small JPG-mh](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/68717b4a-322b-4d06-b58f-aef7d605d6f5) | 
+| ![DSC_0002_small JPG-mh](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/85fdc9c3-852d-4012-bbf2-506308a8949f) |  ![DSC_0008_small JPG-mh](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/68717b4a-322b-4d06-b58f-aef7d605d6f5) | ![DSC_0020_small JPG-mh](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/076abbca-94ea-41d3-9600-b478c4cb1fda)
+
 
 ### Legacy designs 
 
