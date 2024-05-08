@@ -72,9 +72,9 @@ Louder Orange Pi is a top-of-the-range model that uses a modern highly capable T
 
 ### Audio
 
-|       | I2S CLK | I2S DATA | I2S WS | 
-|-------|---------|----------|--------|
-| Orange Pi One | PA19      | PA20       | PA18     | 
+|       | I2S CLK | I2S DATA | I2S WS |  CE (MAX98357 only)
+|-------|---------|----------|--------|--------|
+| Orange Pi One | PA19      | PA20       | PA18     | PA8 
 
 ### Peripheral (built-in)
 
@@ -100,7 +100,7 @@ TBD
 
 ## Software
 
-Being a Debian-based Orange Pi Media Center is a vast space for experimentation. First things first, for any OS you need to configure DAC. Below instruction is based on [Armbian](https://www.armbian.com/) experience, that support current kernel (thus already having DAC kernel modules).
+Being a Debian-based Orange Pi Media Center is a vast space for experimentation. First things first, for any OS you need to configure DAC. Below instruction is based on [Armbian](https://www.armbian.com/) experience, that supports the current kernel (thus already having DAC kernel modules).
 
 ### DAC Configuration - HiFi Orange Pi Media Center
 
@@ -172,6 +172,7 @@ Create a `i2s-sound.dts` file somewhere in the filesystem with the following con
 			max98357a: max98357a {
 			#sound-dai-cells = <0>;
 			compatible = "maxim,max98357a";
+			sdmode-gpios = <&pio 0 8 0>; /* PA8, active high */
 			status = "okay";
 			};
  		}; 
@@ -208,6 +209,7 @@ Create a `i2s-sound.dts` file somewhere in the filesystem with the following con
 		};
 	};
 };
+
 ```
 
 Next, run the following command 
