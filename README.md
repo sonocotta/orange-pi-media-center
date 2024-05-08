@@ -11,17 +11,17 @@ Orange Pi Media Center is a series of Orange Pi One-based media center devices. 
 
 I did a few audio projects in the past, some using [ESP32](https://hackaday.io/project/173620-loud-esp), some using popular [Raspberry Pi](https://hackaday.io/project/195272-raspberry-pi-media-center) devices. Each has its pros and cons, and with each iteration, I'm trying to focus on the details that were working best for me, while using them myself on a daily basis. 
 
-What is special about the Orange Pi is the amount of hardware power that you get for your buck. Surely, the ecosystem is not as rich as Raspberry Pi, and the community is not so wast. But Armbian is still a Debian based system and most of the things you'd want to run, just work!
+What is special about the Orange Pi is the amount of hardware power that you get for your buck. Surely, the ecosystem is not as rich as Raspberry Pi, and the community is not so vast. But Armbian is still a Debian-based system and most of the things you'd want to run, just work!
 
 ## Early prototypes
 
-Media center didn't appear from the thin air. Series of Hat prototypes were created before. 
+The Media center didn't appear from the thin air. A series of Hat prototypes were created before. 
 
-Orange Pi Hi-Fi Hat adds Hi-Fi audio capability to your Pi. It uses native I2S output of Orange Pi together with Texas Instruments' fantastic PCM5100 Hi-Fi DAC.
+Orange Pi Hi-Fi Hat adds Hi-Fi audio capability to your Pi. It uses the native I2S output of Orange Pi together with Texas Instruments' fantastic PCM5100 Hi-Fi DAC.
 
 ![image](https://user-images.githubusercontent.com/5459747/209653155-5d475646-525a-4f9a-a561-1d854e3b34ee.png)
 
-Loud Orange Pi Hat uses dual MAX98357 DAC to spit out two cannels of 3W music power each
+Loud Orange Pi Hat uses dual MAX98357 DAC to spit out two channels of 3W music power each
 
 ![DSC_0433](https://github.com/sonocotta/orange-pi-hi-fi-hat/assets/5459747/28e6fa61-931e-42fc-841b-1774a86752a5)
 
@@ -29,34 +29,34 @@ Finally, the early design of the Orange Pi Media Center was based on the Loud Or
 
 ![DSC_0509](https://github.com/sonocotta/orange-pi-hi-fi-hat/assets/5459747/5b477e8e-8844-40bd-acaa-fbc27555e032)
 
-## HiFi Orange Pi
+## HiFi Orange Pi Media Center
 
-Raspberry Pi HiFi is a first-in-line product that uses the legendary PCM5100 series DAC with supreme audio quality. It exposes line-level output that you can plug into a stereo amplifier. Spend as much as you need on the external amp to deliver the sound you like (personally I prefer late 80's audio gear).
+Orange Pi HiFi is a first-in-line product that uses the legendary PCM5100 series DAC with supreme audio quality. It exposes line-level output that you can plug into a stereo amplifier. Spend as much as you need on the external amp to deliver the sound you like (personally I prefer late 80's audio gear).
 
 ![DSC_0005](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/b85e2cca-3003-4278-bbe3-fd8affea67b8)
 
 It is a simple yet powerful solution that adds audio capabilities to your Orange Pi-based project. Audio quality complies with Hi-Fi standards, which means it is suitable for high-quality audio streaming, just like Big Pi
 
-## Loud Raspberry Pi
+## Loud Orange Pi Media Center 
 
-Loud Raspberry Pi uses a dual MAX98357 HiFi DAC with a built-in highly efficient D-class amp to deliver 3 to 5W of music power directly to your speakers.
+Loud Orange Pi uses a dual MAX98357 HiFi DAC with a built-in highly efficient D-class amp to deliver 3 to 5W of music power directly to your speakers.
 
 ![DSC_0008](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/db5014e1-c861-421e-a34c-26a6a3c0e241)
 
 It's capable and reasonably priced, and great value for money. In terms of audio quality, it is no compromise, and that is what matters most
 
-## Louder Raspberry Pi
+## Louder Orange Pi Media Center
 
 (Work-In-Progress, spoiler alert)
 
-Louder Raspberry Pi is a top-of-the-range model that uses a modern highly capable TAS5805M DAC and is aimed to be paired with medium-to-large speaker systems. With 25W per channel stereo output, it packs a punch and can easily enliven living quarters or dorm rooms. It is highly efficient, but much more demanding for power when cranked, therefore it uses USB-C Power Delivery to pull up to 65W from the wall power adapter. 
+Louder Orange Pi is a top-of-the-range model that uses a modern highly capable TAS5805M DAC and is aimed to be paired with medium-to-large speaker systems. With 25W per channel stereo output, it packs a punch and can easily enliven living quarters or dorm rooms. It is highly efficient, but much more demanding for power when cranked, therefore it uses USB-C Power Delivery to pull up to 65W from the wall power adapter. 
 
 (no picture yet)
 
 
 ## Features
 
-|                               | HiFi Orange Pi                                                                                                      | Loud Orange Pi                                                                                       | Louder Orange Pi                                                                         |
+|                               | HiFi Orange Pi Media Center                                   | Loud Orange Pi Media Center                         | Louder Orange Pi Media Center               |
 |-------------------------------|---------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
 | Image                         |  ![DSC_0005](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/b85e2cca-3003-4278-bbe3-fd8affea67b8)     | ![DSC_0008](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/db5014e1-c861-421e-a34c-26a6a3c0e241) | WIP  |
 | DAC                           | [PCM5100A](https://www.ti.com/product/PCM5100A) 32bit Stereo DAC                                                    | Dual I2S DAC [MAX98357](https://www.analog.com/en/products/max98357a.html) with built in D-Class amp | Stereo I2S DAC [TAS5805M](https://www.ti.com/product/TAS5805M) with built in D-Class amp |
@@ -102,7 +102,7 @@ TBD
 
 Being a Debian-based Orange Pi Media Center is a vast space for experimentation. First things first, for any OS you need to configure DAC. Below instruction is based on [Armbian](https://www.armbian.com/) experience, that support current kernel (thus already having DAC kernel modules).
 
-### DAC Configuration - HiFi Orange Pi
+### DAC Configuration - HiFi Orange Pi Media Center
 
 Create a `i2s-sound.dts` file somewhere in the filesystem with the following contents
 
@@ -157,7 +157,7 @@ Create a `i2s-sound.dts` file somewhere in the filesystem with the following con
 };
 ```
 
-### DAC Configuration - Loud Orange Pi
+### DAC Configuration - Loud Orange Pi Media Center
 
 ```
 /dts-v1/;
@@ -259,21 +259,21 @@ All of the above can be done manually, basically following [instructions](https:
 
 Please visit the [hardware](/hardware/) section for board schematics and PCB designs. Note that PCBs are shared as multi-layer PDFs as well as Gerber archives.
 
-### HiFi Orange Pi
+### HiFi Orange Pi Media Center
 
 | Front | Back | PCB |
 |---|---|---|
 | ![DSC_0002_small JPG-mh](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/9a5ebd9c-379e-481e-a9cf-932aa880da58) | ![DSC_0005_small JPG-mh](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/68d6b6d8-cc70-4592-a3ae-fbd6974bcbbb) | ![DSC_0023_small JPG-mh](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/837f02d7-7a3f-4a7f-890a-b3fe79d24d12)
 
 
-### Loud Raspberry Pi
+### Loud Orange Pi Media Center
 
 | Front | Back | PCB |
 |---|---|---|
 | ![DSC_0002_small JPG-mh](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/85fdc9c3-852d-4012-bbf2-506308a8949f) |  ![DSC_0008_small JPG-mh](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/68717b4a-322b-4d06-b58f-aef7d605d6f5) | ![DSC_0020_small JPG-mh](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/076abbca-94ea-41d3-9600-b478c4cb1fda)
 
 
-### Legacy designs 
+### Earlier designs 
 
 | Legend | Photo 1 | Photo 2 |
 |-----------|-----------|-----------|
@@ -286,8 +286,9 @@ Please visit the [hardware](/hardware/) section for board schematics and PCB des
 
 ### Current designs
 
-- (coming soon)
-
+- HiFi Orange Pi Media Center (coming soon)
+- Loud Orange Pi Media Center (coming soon)
+ 
 ### Legacy designs
 
 - [Orange Pi Hi-Fi hat](https://www.tindie.com/products/sonocotta/orange-pi-hi-fi-hat/)
