@@ -45,6 +45,19 @@ Loud Orange Pi uses a dual MAX98357 HiFi DAC with a built-in highly efficient D-
 
 It's capable and reasonably priced, and great value for money. In terms of audio quality, it is no compromise, and that is what matters most
 
+### Power considerations
+
+According to manufacturer Orange Pi One require at least 2 Amps of 5V line, ech DAC need at least 1 Amp extra. With total budget requirement of 5 Amps it is not reasonable to count on USB-C 5V power line alone. I've decided to use USB-PD over type-C cable. Pretty much any 9V/12V/20V PD-enabled power adapter will work, most typically phone chargers with quick charge option. Smallest of the family is 25W models, which is plenty enough for the both Orange Pi and DACs.
+
+Tested and prefectly working models are (others may be availbale)
+
+| Model   | Image   |
+|-------------------------------|---------------------------------|
+| [65W USB-C Lenovo ThinkPad Laptop Charger Replacement Power Adapter](https://www.aliexpress.com/item/1005005994445557.html)  | ![image](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/27614db3-de35-4054-8450-9845a09f6381)
+| [65W 45W 20V 3.25A Type-C PD Laptop Charger](https://www.aliexpress.com/item/1005006086701848.html) | ![image](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/266a9bed-dde5-4869-aa31-84176b0a6608)
+| [120W Gan Type-C PD Charger](https://www.aliexpress.com/item/1005006806666186.html) | ![image](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/f42d4c8c-879b-494c-ac18-dd18ace322e7)
+| [45W Type-C PD Mobile Phone Wall Adapter](https://www.aliexpress.com/item/1005006713008533.html) | ![image](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/110bb6f9-7014-4dfc-8fd8-3bc99b269e9c)
+
 ## Louder Orange Pi Media Center
 
 (Work-In-Progress, spoiler alert)
@@ -283,6 +296,10 @@ Please visit the [hardware](/hardware/) section for board schematics and PCB des
 | Orange Pi PC | ![image](https://user-images.githubusercontent.com/5459747/209653361-29e2cff6-6f71-405b-bc1e-7d4f22a72046.png) | ![image](https://user-images.githubusercontent.com/5459747/209653386-3736780d-dade-45c7-b182-718f26f47ff5.png)
 | Loud Orange Pi with optional TFT screen | ![DSC_0433](https://github.com/sonocotta/orange-pi-hi-fi-hat/assets/5459747/28e6fa61-931e-42fc-841b-1774a86752a5) | ![DSC_0437](https://github.com/sonocotta/orange-pi-hi-fi-hat/assets/5459747/f3cc4fb3-8fc6-4810-a096-cbe7c65547d0)
 | Orange Pi Media Center | ![DSC_0509](https://github.com/sonocotta/orange-pi-hi-fi-hat/assets/5459747/5b477e8e-8844-40bd-acaa-fbc27555e032) ![DSC_0506](https://github.com/sonocotta/orange-pi-hi-fi-hat/assets/5459747/dcd36078-74b0-4744-bd0e-191f12fd5c39) | ![DSC_0504](https://github.com/sonocotta/orange-pi-hi-fi-hat/assets/5459747/f6d266f6-c94b-4148-8f30-3e29ab946653)
+
+## Demo
+
+[![Loud Orange Pi Media Center audio test](http://img.youtube.com/vi/NVYHHE_ENYY/0.jpg)](http://www.youtube.com/watch?v=NVYHHE_ENYY "Loud Orange Pi Media Center audio test")
 
 ## Where to buy
 
