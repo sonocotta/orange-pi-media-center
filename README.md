@@ -7,6 +7,8 @@
 
 Orange Pi Media Center is a series of Orange Pi One-based media center devices. They share a similar look, and compared to my earlier designs, they have a great-looking aluminum case.
 
+## Table of Contents
+
 - [Orange Pi Media Center](#orange-pi-media-center)
 	- [Motivation](#motivation)
 	- [Early prototypes](#early-prototypes)
