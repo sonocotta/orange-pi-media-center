@@ -7,6 +7,35 @@
 
 Orange Pi Media Center is a series of Orange Pi One-based media center devices. They share a similar look, and compared to my earlier designs, they have a great-looking aluminum case.
 
+- [Orange Pi Media Center](#orange-pi-media-center)
+	- [Motivation](#motivation)
+	- [Early prototypes](#early-prototypes)
+	- [HiFi Orange Pi Media Center](#hifi-orange-pi-media-center)
+	- [Loud Orange Pi Media Center](#loud-orange-pi-media-center)
+		- [Power considerations](#power-considerations)
+	- [Louder Orange Pi Media Center](#louder-orange-pi-media-center)
+	- [Features](#features)
+	- [Board Pinout](#board-pinout)
+		- [Audio](#audio)
+		- [Peripheral (built-in)](#peripheral-built-in)
+		- [Peripheral (optional TFT screen)](#peripheral-optional-tft-screen)
+		- [Peripheral (optional rotary encoder)](#peripheral-optional-rotary-encoder)
+		- [Peripheral (Louder)](#peripheral-louder)
+	- [Software](#software)
+		- [DAC Configuration - HiFi Orange Pi Media Center](#dac-configuration---hifi-orange-pi-media-center)
+		- [DAC Configuration - Loud Orange Pi Media Center](#dac-configuration---loud-orange-pi-media-center)
+		- [Automated deployment using Ansible](#automated-deployment-using-ansible)
+		- [Manual installation steps](#manual-installation-steps)
+	- [Hardware](#hardware)
+		- [HiFi Orange Pi Media Center](#hifi-orange-pi-media-center-1)
+		- [Loud Orange Pi Media Center](#loud-orange-pi-media-center-1)
+		- [Earlier designs](#earlier-designs)
+	- [Demo](#demo)
+	- [Where to buy](#where-to-buy)
+		- [Current designs](#current-designs)
+		- [Legacy designs](#legacy-designs)
+ 
+  
 ## Motivation
 
 I did a few audio projects in the past, some using [ESP32](https://hackaday.io/project/173620-loud-esp), some using popular [Raspberry Pi](https://hackaday.io/project/195272-raspberry-pi-media-center) devices. Each has its pros and cons, and with each iteration, I'm trying to focus on the details that were working best for me, while using them myself on a daily basis. 
