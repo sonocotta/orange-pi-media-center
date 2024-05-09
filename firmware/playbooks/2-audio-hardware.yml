@@ -1,6 +1,6 @@
 - name: Hardware
-  hosts: AudioEndNodes
-  become: yes
+  hosts: orange-pi
+  become: true
   tasks:
 
   - name: apt install packages
@@ -10,45 +10,46 @@
       state: present
 
   # we need kernel module for PCM510X DAC
-  - name: Clone a github repository
-    git:
-      repo: https://github.com/anabolyc/pcm5102a-for-armbian-orangepi-zero
-      dest: /opt/repos/pcm5102a-for-armbian-orangepi-zero
-      clone: yes
-      update: yes
-      force: yes
+  # - name: Clone a github repository
+  #   git:
+  #     repo: https://github.com/anabolyc/pcm5102a-for-armbian-orangepi-zero
+  #     dest: /opt/repos/pcm5102a-for-armbian-orangepi-zero
+  #     clone: true
+  #     update: true
+  #     force: true
 
-  # Enable I2S harwdare output
-  - name: Install I2S overlay
-    run_once: yes
-    ansible.builtin.shell:
-      cmd: dtc -@ -q -I dts -O dtb -o /tmp/i2s-sound.dtbo i2s-sound.dts && mv /tmp/i2s-sound.dtbo /boot/overlay-user/
-      chdir: /opt/repos/pcm5102a-for-armbian-orangepi-zero
+  # # Enable I2S harwdare output
+  # - name: Install I2S overlay
+  #   run_once: true
+  #   ansible.builtin.shell:
+  #     cmd: dtc -@ -q -I dts -O dtb -o /tmp/i2s-sound.dtbo i2s-sound.dts && mv /tmp/i2s-sound.dtbo /boot/overlay-user/
+  #     chdir: /opt/repos/pcm5102a-for-armbian-orangepi-zero
 
-  - name: Patch armbianEnv.txt
-    lineinfile:
-      dest: /boot/armbianEnv.txt
-      regexp: "{{ item.regexp }}"
-      line: "{{ item.line }}"
-    loop:
-    - { regexp: '^user_overlays=', line: 'user_overlays=i2s-sound' }
+  # - name: Patch armbianEnv.txt
+  #   lineinfile:
+  #     dest: /boot/armbianEnv.txt
+  #     regexp: "{{ item.regexp }}"
+  #     line: "{{ item.line }}"
+  #   loop:
+  #   - { regexp: '^user_overlays=', line: 'user_overlays=i2s-sound' }
 
-  - name: Build pcm5102a kernel module
-    run_once: yes
-    ansible.builtin.shell:
-      cmd: make all
-      chdir: /opt/repos/pcm5102a-for-armbian-orangepi-zero
+  # - name: Build pcm5102a kernel module
+  #   run_once: true
+  #   ansible.builtin.shell:
+  #     cmd: make all
+  #     chdir: /opt/repos/pcm5102a-for-armbian-orangepi-zero
 
-  - name: Install pcm5102a kernel module
-    run_once: yes
-    ansible.builtin.shell:
-      cmd: make install
-      chdir: /opt/repos/pcm5102a-for-armbian-orangepi-zero
+  # - name: Install pcm5102a kernel module
+  #   run_once: true
+  #   ansible.builtin.shell:
+  #     cmd: make install
+  #     chdir: /opt/repos/pcm5102a-for-armbian-orangepi-zero
 
   # Disable HDMI audio output
   - name: Kernel module blacklist
     lineinfile:
       dest: /etc/modprobe.d/blacklist.conf
+      create: true
       regexp: "{{ item.regexp }}"
       line: "{{ item.line }}"
     loop:
