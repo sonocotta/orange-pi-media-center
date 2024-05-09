@@ -1,6 +1,6 @@
 - name: Mopidy
-  hosts: AudioEndNodes
-  become: yes
+  hosts: orange-pi
+  become: true
   tasks:
 
   # Enable hardware SPI 
@@ -48,7 +48,7 @@
   - name: Patch udev.rules
     lineinfile: 
       dest: /etc/udev/rules.d/local.rules
-      create: yes
+      create: true
       line: '{{ item }}'
     with_items:
       - 'ACTION=="add", KERNEL=="spidev0.0", MODE="0666"'
@@ -60,13 +60,13 @@
     user:
       name: mopidy
       groups: dialout,gpio
-      append: yes
+      append: true
       
   - name: Start mopidy service
     ansible.builtin.service:
       name: mopidy
       state: restarted
-      enabled: yes
+      enabled: true
 
   # Requires reboot due to hardaware configuration changes
   - name: Reboot the machine (Wait for 5 min)

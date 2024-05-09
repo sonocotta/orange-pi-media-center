@@ -1,6 +1,6 @@
 - name: Librespot
-  hosts: AudioEndNodes
-  become: yes
+  hosts: orange-pi
+  become: true
   tasks:
 
   - name: apt install packages
@@ -28,7 +28,7 @@
     when: my_package_check_deb.rc == 1
 
   - name: Install raspotify
-    run_once: yes
+    run_once: true
     ansible.builtin.shell:
       cmd: dpkg --ignore-depends=coreutils --ignore-depends=alsa-utils --ignore-depends=systemd --ignore-depends=init-system-helpers --ignore-depends=libasound2 -i /tmp/raspotify-latest_armhf.deb
     when: my_package_check_deb.rc == 1

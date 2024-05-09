@@ -10,17 +10,17 @@
             "problemMatcher": []
         },
         {
-            "label": "1. apply with root password",
+            "label": "1. apply current file as root",
             "type": "shell",
-            "command": "ansible-playbook ./playbooks/1-init.yml -k -i hosts",
+            "command": "ansible-playbook ${file} -k -i hosts.yml",
             "problemMatcher": [],
             "group": "build"
             
         },
         {
-            "label": "2. apply ${file} without password",
+            "label": "2. apply current file as ansible_user",
             "type": "shell",
-            "command": "ansible-playbook ${file} -i hosts",
+            "command": "ansible-playbook ${file} -i hosts.yml",
             "problemMatcher": [],
             "group": "build"
             

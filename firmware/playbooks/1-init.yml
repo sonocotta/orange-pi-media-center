@@ -1,12 +1,12 @@
 - name: Init
-  hosts: AudioEndNodes
+  hosts: orange-pi
   remote_user: root
   tasks:
   - name: apt update cache if it is older than 1 day
     register: updatesys
     apt:
-      upgrade: yes
-      update_cache: yes
+      upgrade: true
+      update_cache: true
       cache_valid_time: 86400
 
   - name: apt install packages

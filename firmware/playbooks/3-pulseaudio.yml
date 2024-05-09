@@ -1,6 +1,6 @@
 - name: Hardware
-  hosts: AudioEndNodes
-  become: yes
+  hosts: orange-pi
+  become: true
   tasks:
 
   - name: apt install packages
@@ -44,4 +44,4 @@
     ansible.builtin.service:
       name: pulseaudio
       state: restarted
-      enabled: yes
+      enabled: true
