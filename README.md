@@ -74,13 +74,13 @@ Loud Orange Pi uses a dual MAX98357 HiFi DAC with a built-in highly efficient D-
 
 ![DSC_0008](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/db5014e1-c861-421e-a34c-26a6a3c0e241)
 
-It's capable and reasonably priced, and great value for money. In terms of audio quality, it is no compromise, and that is what matters most
+It's capable reasonably priced, and great value for money. In terms of audio quality, there is no compromise, and that is what matters most
 
 ### Power considerations
 
-According to manufacturer Orange Pi One require at least 2 Amps of 5V line, ech DAC need at least 1 Amp extra. With total budget requirement of 5 Amps it is not reasonable to count on USB-C 5V power line alone. I've decided to use USB-PD over type-C cable. Pretty much any 9V/12V/20V PD-enabled power adapter will work, most typically phone chargers with quick charge option. Smallest of the family is 25W models, which is plenty enough for the both Orange Pi and DACs.
+According to the manufacturer Orange Pi One requires at least 2 Amps of 5V line, and each DAC needs at least 1 Amp extra. With the total budget requirement of 5 Amps, it is not reasonable to count on a USB-C 5V power line alone. I've decided to use a USB-PD over a type-C cable. Pretty much any 9V/12V/20V PD-enabled power adapter will work, most typically phone chargers with a quick charge option. The smallest of the family is 25W models, which is plenty enough for both Orange Pi and DACs.
 
-Tested and prefectly working models are (others may be availbale)
+Tested and perfectly working models are (others may be available)
 
 | Model   | Image   |
 |-------------------------------|---------------------------------|
@@ -104,12 +104,12 @@ Louder Orange Pi is a top-of-the-range model that uses a modern highly capable T
 |-------------------------------|---------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
 | Image                         |  ![DSC_0005](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/b85e2cca-3003-4278-bbe3-fd8affea67b8)     | ![DSC_0008](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/db5014e1-c861-421e-a34c-26a6a3c0e241) | WIP  |
 | DAC                           | [PCM5100A](https://www.ti.com/product/PCM5100A) 32bit Stereo DAC                                                    | Dual I2S DAC [MAX98357](https://www.analog.com/en/products/max98357a.html) with built in D-Class amp | Stereo I2S DAC [TAS5805M](https://www.ti.com/product/TAS5805M) with built in D-Class amp |
-| Output                        | 2.1 VRMS Line level output <br/> -100 dB typical noise level                                                        | 2x 3W                                                                                                | 2x 22W at 20V over USB-PD                                                                |
+| Output                        | 2.1 VRMS Line level output <br/> -100 dB typical noise level                                                        | 2x 3W (8Ω);   2x 5W (4Ω)                                 | 2x 22W (8Ω, 1% THD+N); 2x 32W (4Ω, 1% THD+N)                                                                   |
 | IR reader                     | yes                                                                                                                 | yes                                                                                                  | yes                                                                                      |
 | RGB LED                       | yes                                                                                                                 | yes                                                                                                  | yes                                                                                      |
 | External relay driver         | yes                                                                                                                 | no                                                                                                   | yes                                                                                       |
 | Ethernet                      | built-in                                              | built-in                               | built-in                   |
-| Powers from                   | 5V USB-C power adapter <br/>Triple [LP5907](https://www.ti.com/lit/ds/symlink/lp5907.pdf) 3.3 V Ultra-Low-Noise LDO | 25W USB-C PD power adapter                                                                       | 65W USB-C PD power adapter                                                               |
+| Powers from                   | 5V USB-C power adapter <br/>Triple [LP5907](https://www.ti.com/lit/ds/symlink/lp5907.pdf) 3.3 V Ultra-Low-Noise LDO | 25W+ USB-C PD power adapter                                                                       | 65W USB-C PD power adapter (25W/45W with limited power)                                                                |
 | Mechanical dimensions (WxHxD) | 88mm x 38mm x 100mm                                                                                                 | 88mm x 38mm x 100mm                                                                                  | 88mm x 38mm x 100mm                                                                      |
 
 ## Board Pinout
