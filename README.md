@@ -2,7 +2,9 @@
 
 ![Open Source Hardware](/doc/images/open-source-hardware-logo.png)
 ![Open Source Software](/doc/images/open-source-software-logo.png)
-
+<a href="https://www.tindie.com/stores/sonocotta/?ref=offsite_badges&utm_source=sellers_andrey-malyshenko&utm_medium=badges&utm_campaign=badge_medium"><img src="https://d2ss6ovg47m0r5.cloudfront.net/badges/tindie-mediums.png" alt="I sell on Tindie" width="150" height="78"></a>
+<br />
+[![Dev Chat](https://img.shields.io/discord/1233306441469657140?logo=discord&label=discord&style=flat-square)](https://discord.gg/PtnaAaQMpS)
 ![DSC_0029](https://github.com/sonocotta/orange-pi-media-center/assets/5459747/eaf22234-3698-4ffb-8bf8-64190738be24)
 
 Orange Pi Media Center is a series of Orange Pi One-based media center devices. They share a similar look, and compared to my earlier designs, they have a great-looking aluminum case.
