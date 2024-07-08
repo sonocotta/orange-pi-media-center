@@ -1,0 +1,21 @@
+- name: init orangepi
+  hosts: orangepi
+
+  vars:
+    ansible_ssh_user: root
+  
+  tasks:
+    # Allow {{ ansible_user }} to run sudo without password
+    - name: Allow the "{{ ansible_user }}" to run any commands with sudo
+      community.general.sudoers:
+        name: "{{ ansible_user + '-sudo-all' }}"
+        state: present
+        user: "{{ ansible_user }}"
+        commands: ALL
+
+    - name: apt update cache if it is older than 1 day
+      register: updatesys
+      apt:
+        upgrade: yes
+        update_cache: yes
+        cache_valid_time: 86400
