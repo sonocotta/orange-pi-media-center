@@ -140,9 +140,6 @@ Louder Orange Pi is a top-of-the-range model that uses a modern highly capable T
 |-------|----------|--------|----------|
 | Orange Pi One |  PC7     |  PC4    |  PA6      | 
 
-### Peripheral (Louder)
-
-TBD
 
 ## Software
 
@@ -287,17 +284,26 @@ $ speaker-test -t wav -c 2
 
 [Ansible](https://www.ansible.com/) is an automation suite that allows you to configure systems remotely using redistributable configurations called playbooks.
 
-A few playbooks were created to allow 2-clicks deployment for Orange Pi Hi-Fi Hat. Those are based on Armbian Ubuntu Focal images, can be download here: [Orange Pi PC](https://imola.armbian.com/archive/orangepipc/archive/Armbian_21.02.1_Orangepipc_focal_current_5.10.12.img.xz) and [Orange Pi One](https://fi.mirror.armbian.de/archive/orangepione/archive/Armbian_21.02.1_Orangepione_focal_current_5.10.12.img.xz)
+This is a work in progress and the idea is to have a bare minimum OS and install the most used client services via the Ansible playbook. I will add more details, as soon as I have working samples, but planned things to add are
 
-The below steps are run on your laptop or PC, all configurations will be delivered remotely via ssh
+- [x] Configure DAC (pick one of HiFi, Loud, or Louder)
+- [x] Pulseaudio server with network sink 
+- [x] Spotify Connect
+- [x] Snapcast client (with autodiscovery)
+- [x] Slimproto client (with autodiscovery)
+- [x] Apple Airplay
+- [x] UPNP sink (gmediarender)
+
+This will allow to integrate into existing media sources with Home Assistant, LMS, or Mopidy instance, including multi-room sync.
+
+#### How to use them
 
 - Write the downloaded Armbian image onto an SD card of your choice. Start your Orange Pi and find its IP address. The next steps will assume that the IP address of each node stays the same after reboot. You might need to configure your router to lease static IP to Orange Pi to make it stable.
-- Open [firmware](/firmware) folder in vscode. In case you don't want to install vscode, you can run commands in plain terminal as well. Please use [tasks.json](/firmware/.vscode/tasks.json) file for reference
-- Prepare [hosts](/firmware/hosts) file. Add your node's IP address and name
+- Open [media-center-via-ansible](/firmware/media-center-via-ansible) folder in vscode. In case you don't want to install vscode, you can run commands in plain terminal as well. Please use [tasks.json](/firmware/.vscode/tasks.json) file for reference
+- Prepare [hosts](/firmware/hosts) file. Add your node's IP address and name. If you prefer password auth, you need to add a password here, but ssh-key auth is recommended
 - Run `0. install prerequisites` task. It will install necessary tools on your laptop/PC, like Ansible client and such
-- Run `1. apply with root password` task. It will ask for the root password, which is `1234` by default on Armbian. This task will install and update packages, as well as create a new user and configure ssh on your Pi
-- (Obsolete, see above) Open [2-audio-hardware.yml](/firmware/playbooks/2-audio-hardware.yml) file and run `2. apply ${file} without password` task. It will build and configure the kernel module for PCM510X DAC as well as configure Device Tree overlay to inform Linux about the new DAC is has
-- (Optional) Do the same with [3-pulseaudio.yml](firmware/playbooks/3-pulseaudio.yml), [4-mopidy.yml](firmware/playbooks/4-mopidy.yml), [5-libre-spotify.yml](firmware/playbooks/5-libre-spotify.yml) playbooks. That will install [Pulseaudio](https://www.freedesktop.org/wiki/Software/PulseAudio/) network node, [Mopidy](https://mopidy.com/) and [Libre-Spotify](https://github.com/dtcooper/raspotify) smart speaker software accordingly
+- Run `1-hifi-orange-pi.yml` or `1-loud-orange-pi.yml` playbook using `1. apply current playbook` task depending on your hardware.
+- Run remaining playbooks the same way, pick those that you're planning to use
 
 ### Manual installation steps
 
