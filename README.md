@@ -39,8 +39,8 @@ Orange Pi Media Center is a series of Orange Pi One-based media center devices. 
 	- [Where to buy](#where-to-buy)
 		- [Current designs](#current-designs)
 		- [Legacy designs](#legacy-designs)
- 
-  
+
+
 ## Motivation
 
 I did a few audio projects in the past, some using [ESP32](https://hackaday.io/project/173620-loud-esp), some using popular [Raspberry Pi](https://hackaday.io/project/195272-raspberry-pi-media-center) devices. Each has its pros and cons, and with each iteration, I'm trying to focus on the details that were working best for me, while using them myself on a daily basis. 
