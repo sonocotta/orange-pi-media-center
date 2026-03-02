@@ -127,7 +127,7 @@ Louder Orange Pi is a top-of-the-range model that uses a modern highly capable T
 
 |       | WS2812 RGB LED |  RELAY EN | IR INPUT |
 |-------|----------|--------|----------|
-| Orange Pi One |  PC0     |  PA2    |   PA9      |  
+| Orange Pi One |  PA7/PC0     |  PA2    |   PA9      |  
 
 ### Peripheral (optional TFT screen)
 
